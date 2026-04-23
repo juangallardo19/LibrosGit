@@ -1,11 +1,19 @@
 {% extends 'gestion/base.html' %}
-
 {% block content %}
-<h1>Eliminar Libro</h1>
-<p>¿Estás seguro de que deseas eliminar <strong>{{ libro.titulo }}</strong>?</p>
-<form method="post">
-    {% csrf_token %}
-    <button type="submit" class="btn btn-danger">Sí, eliminar</button>
-    <a href="{% url 'lista_libros' %}" class="btn btn-secondary">Cancelar</a>
-</form>
+<div class="confirm-center">
+    <div class="confirm-box">
+        <div class="stamp">
+            <span class="stamp-icon">!</span>
+        </div>
+        <h1>Eliminar</h1>
+        <p>Deseas eliminar <strong>{{ libro.titulo }}</strong>?<br>Esta accion no se puede deshacer.</p>
+        <div class="btn-row" style="justify-content:center">
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Si, eliminar</button>
+            </form>
+            <a href="{% url 'lista_libros' %}" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

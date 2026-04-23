@@ -1,13 +1,31 @@
 {% extends 'gestion/base.html' %}
-
 {% block content %}
-<h1>{{ libro.titulo }}</h1>
-<ul class="list-group mb-3">
-    <li class="list-group-item"><strong>Género:</strong> {{ libro.genero }}</li>
-    <li class="list-group-item"><strong>Fecha de publicación:</strong> {{ libro.fecha_publicacion }}</li>
-    <li class="list-group-item"><strong>ISBN:</strong> {{ libro.isbn }}</li>
-    <li class="list-group-item"><strong>Autor:</strong> {{ libro.autor }}</li>
-</ul>
-<a href="{% url 'editar_libro' libro.pk %}" class="btn btn-warning">Editar</a>
-<a href="{% url 'lista_libros' %}" class="btn btn-secondary">Volver</a>
+<div class="detail-box">
+    <div class="detail-header">
+        <p class="subtitle">-- Libro --</p>
+        <h1>{{ libro.titulo }}</h1>
+    </div>
+    <div class="detail-body">
+        <div class="detail-row">
+            <span class="detail-label">Genero</span>
+            <span class="detail-value">{{ libro.genero }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Fecha Publicacion</span>
+            <span class="detail-value">{{ libro.fecha_publicacion }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">ISBN</span>
+            <span class="detail-value">{{ libro.isbn }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Autor</span>
+            <span class="detail-value">{{ libro.autor }}</span>
+        </div>
+    </div>
+    <div class="detail-actions">
+        <a href="{% url 'editar_libro' libro.pk %}" class="btn btn-warning">Editar</a>
+        <a href="{% url 'lista_libros' %}" class="btn btn-secondary">Volver</a>
+    </div>
+</div>
 {% endblock %}
