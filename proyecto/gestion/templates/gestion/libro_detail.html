@@ -1,0 +1,13 @@
+{% extends 'gestion/base.html' %}
+
+{% block content %}
+<h1>{{ libro.titulo }}</h1>
+<ul class="list-group mb-3">
+    <li class="list-group-item"><strong>Género:</strong> {{ libro.genero }}</li>
+    <li class="list-group-item"><strong>Fecha de publicación:</strong> {{ libro.fecha_publicacion }}</li>
+    <li class="list-group-item"><strong>ISBN:</strong> {{ libro.isbn }}</li>
+    <li class="list-group-item"><strong>Autor:</strong> {{ libro.autor }}</li>
+</ul>
+<a href="{% url 'editar_libro' libro.pk %}" class="btn btn-warning">Editar</a>
+<a href="{% url 'lista_libros' %}" class="btn btn-secondary">Volver</a>
+{% endblock %}

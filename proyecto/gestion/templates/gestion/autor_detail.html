@@ -1,0 +1,13 @@
+{% extends 'gestion/base.html' %}
+
+{% block content %}
+<h1>{{ autor.nombre }}</h1>
+<ul class="list-group mb-3">
+    <li class="list-group-item"><strong>Correo:</strong> {{ autor.correo }}</li>
+    <li class="list-group-item"><strong>Nacionalidad:</strong> {{ autor.nacionalidad }}</li>
+    <li class="list-group-item"><strong>Fecha de nacimiento:</strong> {{ autor.fecha_nacimiento }}</li>
+    <li class="list-group-item"><strong>Biografía:</strong> {{ autor.biografia }}</li>
+</ul>
+<a href="{% url 'editar_autor' autor.pk %}" class="btn btn-warning">Editar</a>
+<a href="{% url 'lista_autores' %}" class="btn btn-secondary">Volver</a>
+{% endblock %}
