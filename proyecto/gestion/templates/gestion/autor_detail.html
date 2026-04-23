@@ -1,0 +1,31 @@
+{% extends 'gestion/base.html' %}
+{% block content %}
+<div class="detail-box">
+    <div class="detail-header">
+        <p class="subtitle">— Autor —</p>
+        <h1>{{ autor.nombre }}</h1>
+    </div>
+    <div class="detail-body">
+        <div class="detail-row">
+            <span class="detail-label">Correo</span>
+            <span class="detail-value">{{ autor.correo }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Nacionalidad</span>
+            <span class="detail-value">{{ autor.nacionalidad }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Nacimiento</span>
+            <span class="detail-value">{{ autor.fecha_nacimiento }}</span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Biografía</span>
+            <span class="detail-value">{{ autor.biografia|default:"—" }}</span>
+        </div>
+    </div>
+    <div class="detail-actions">
+        <a href="{% url 'editar_autor' autor.pk %}" class="btn btn-warning">Editar</a>
+        <a href="{% url 'lista_autores' %}" class="btn btn-secondary">Volver</a>
+    </div>
+</div>
+{% endblock %}
